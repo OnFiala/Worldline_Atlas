@@ -1,0 +1,23 @@
+{
+  "synthetic": true,
+  "description": "Invented orbital values for isolated software tests. NOT a CelesTrak observation, NOT an ISS position, and never used by the demo UI. Catalog identifiers only exercise the validator's expected identity.",
+  "elements": [{
+    "OBJECT_NAME": "SYNTHETIC TEST ONLY",
+    "OBJECT_ID": "1998-067A",
+    "NORAD_CAT_ID": 25544,
+    "EPOCH": "2026-10-15T00:00:00.000000",
+    "MEAN_MOTION": 15.5,
+    "ECCENTRICITY": 0.0005,
+    "INCLINATION": 51.5,
+    "RA_OF_ASC_NODE": 20,
+    "ARG_OF_PERICENTER": 30,
+    "MEAN_ANOMALY": 40,
+    "BSTAR": 0,
+    "MEAN_MOTION_DOT": 0,
+    "MEAN_MOTION_DDOT": 0,
+    "EPHEMERIS_TYPE": 0,
+    "CLASSIFICATION_TYPE": "U",
+    "ELEMENT_SET_NO": 1,
+    "REV_AT_EPOCH": 1
+  }]
+}

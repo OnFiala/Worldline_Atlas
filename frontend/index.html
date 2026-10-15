@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#081118"><meta name="description" content="A public reference demo of research methods, conditional mechanisms and forecast evaluation."><title>Worldline · A research atlas</title><link rel="stylesheet" href="/style.css"><script type="module" src="/app.js"></script></head>
+<body>
+<aside class="demo-banner" role="note">PUBLIC SOURCE DEMO · All research records are fictional examples. External imagery, live ISS data and personal automations are disconnected.</aside>
+<a class="skip" href="#detail">Skip to content</a>
+<header class="topbar"><a class="brand" href="/" aria-label="Worldline · A research atlas – home"><span class="brand-icon">◎</span><span>WORLDLINE <b>ATLAS</b><small>PUBLIC REFERENCE DEMO</small></span></a><nav aria-label="Main navigation"><a href="/" data-route="/">Globe</a><a href="/connections" data-route="/connections">Connections</a><a href="/forecasts" data-route="/forecasts">Forecasts</a><a href="/performance" data-route="/performance">Performance</a><a href="/methodology" data-route="/methodology">Methodology</a></nav><span class="private"><span aria-hidden="true">◇</span> Local demo</span></header>
+<section id="evidence-state" class="evidence-state" aria-label="Evidence status" aria-live="polite" hidden></section>
+<main>
+<section class="explorer" aria-label="Interactive research globe">
+  <div class="intro"><p class="eyebrow">OBSERVE. CONNECT. TEST.</p><h1>One world.<br><em>Many connections.</em></h1><p class="intro-copy">From events to consequences.<br>From assumptions to evidence.</p></div>
+  <div id="globe-stage"><canvas id="earth" tabindex="0" role="img" aria-label="Rotatable 3D globe. Drag or use arrow keys to rotate; plus and minus zoom. All events are also available in the list."></canvas><svg id="arcs" aria-hidden="true"></svg><svg id="iss-trail" aria-hidden="true"></svg><button id="iss-marker" aria-label="ISS calculated orbital position" hidden>
+    <svg class="iss-station" viewBox="0 0 64 64" aria-hidden="true" focusable="false">
+      <!-- Schematic ISS identity symbol; orientation and size are illustrative. -->
+      <path class="iss-truss" d="M7 29h50v6H7zM8 24v16m11-16v16m26-16v16m11-16v16"/>
+      <g class="iss-arrays">
+        <path d="M4 4h8v21H4zM15 4h8v21h-8zM41 4h8v21h-8zM52 4h8v21h-8zM4 39h8v21H4zM15 39h8v21h-8zM41 39h8v21h-8zM52 39h8v21h-8z"/>
+        <path class="iss-array-lines" d="M4 11h8m-8 7h8m3-7h8m-8 7h8m18-7h8m-8 7h8m3-7h8m-8 7h8M4 46h8m-8 7h8m3-7h8m-8 7h8m18-7h8m-8 7h8m3-7h8m-8 7h8"/>
+      </g>
+      <path class="iss-radiators" d="M14 27h11v3H14zM39 34h11v3H39z"/>
+      <path class="iss-modules" d="M29 18h6v28h-6zM23 28h6v8h-6zM35 26h7v8h-7zM30 13h4v5h-4zM30 46h4v5h-4z"/>
+      <path class="iss-module-lines" d="M29 25h6m-6 13h6"/>
+    </svg>
+    <span class="iss-label" aria-hidden="true">ISS</span>
+  </button><div id="markers"></div><p id="globe-error" hidden>3D is unavailable. All events and connections remain accessible in the list.</p></div>
+  <div class="map-top"><span class="map-label">RESEARCH ATLAS / 01</span><span id="render-state">Loading surface…</span></div>
+  <details id="iss-panel" class="iss-panel"><summary id="iss-status">ISS · Loading orbit…</summary><div class="iss-actions"><button id="iss-focus" disabled>Locate ISS</button><label><input type="checkbox" id="iss-toggle" checked> Show orbit</label></div><div id="iss-info"><p>Loading public orbit elements. Position will be calculated, not live telemetry.</p></div></details>
+  <div class="globe-controls" aria-label="Globe controls"><button id="zoom-in" aria-label="Zoom in">＋</button><button id="zoom-out" aria-label="Zoom out">−</button><button id="reset-globe" aria-label="Reset view">⌖</button><button id="rotate" aria-pressed="true">Ⅱ <span>Motion</span></button></div>
+  <div class="map-foot"><p><i class="dot"></i> Research case <span class="dash"></span> Hypothetical connection</p><p>Pulse highlights a research case, not a live incident. Markers represent regions.</p><p class="attribution">Surface: original schematic grid · no geographic imagery. Lighting is illustrative.</p></div>
+</section>
+<aside class="workspace" aria-label="Events and connections">
+ <div class="view-switch"><button id="view-globe" class="nav-active">Globe view</button><button id="view-list">Accessible list</button><button id="open-method">Quick guide</button></div><div class="workspace-head"><div><p class="eyebrow">RESEARCH FRONTIER</p><h2>Connections in focus</h2></div><span id="event-count" class="count">—</span></div>
+ <label class="search"><span aria-hidden="true">⌕</span><input id="search" type="search" placeholder="Search topic, region or mechanism" aria-label="Search topic, region or mechanism"></label>
+ <div class="scope-controls"><label>Map scope <select id="map-scope"><option value="focus">Significant cases</option><option value="all">All reviewed cases</option></select></label><p id="scope-status" aria-live="polite"></p></div><div id="sectors" class="filters" role="group" aria-label="Filter sector"></div>
+ <div id="coverage-summary"></div>
+ <div id="event-list" class="event-list" aria-live="polite"></div>
+ <div id="detail" tabindex="-1"><div class="loading">Reading the shared research database…</div></div>
+</aside>
+</main><section id="page-content" class="route-page" hidden></section>
+<footer><span id="sync-status" role="status">Loading latest research run…</span><span>Research hypotheses · no trading recommendations</span><button id="refresh-data">Refresh data ↻</button></footer>
+<dialog id="method"><div class="dialog-head"><p class="eyebrow">HOW TO READ THE ATLAS</p><button id="close-method" aria-label="Close methodology">✕</button></div><h2>Connections need evidence.</h2><p>We read global and regional media across disciplines, develop original conditional mechanisms, and test key assumptions against primary data. Reprints of one wire report remain one source family.</p><div class="method-grid"><section><h3>01 / Observation</h3><p>What was measured, where and when. Publication time is not the observation window.</p></section><section><h3>02 / Hypothesis</h3><p>Why one change might transmit into another. Every edge needs its own evidence and conditions.</p></section><section><h3>03 / Forecast</h3><p>An expectation recorded before the outcome. Original wording, horizon and probability stay unchanged.</p></section><section><h3>04 / Evaluation</h3><p>Support, counterevidence or unresolved. Missing data are neither confirmation nor refutation.</p></section></div><p>Assess significance through scale, duration, affected people and sectors, systemic connections and evidence strength. Repeated small incidents can form an important pattern. Media attention is not severity.</p><p>Work limit: 3 actively tested hypotheses. The mechanism library may be larger. Uncertainty grows through multi-step chains. Calibration means comparing forecasts with outcomes and improving the research process, not retraining the model.</p><p>Events need two independently originating sources for the exact claim and period. Authoritative measurements and official decisions may instead use one primary origin with an independent authenticity, context and interpretation check. Context is not a second measurement. Historical observations and unverified candidates remain clearly distinguished.</p><p class="muted">Conflict analysis stays at a public, high level. No live tactical information. We store source notes and links, not full articles.</p><p>Public demo: no NASA image or live imagery is loaded. The schematic grid is generated by this project. External-provider adapters are retained for future reviewed integrations.</p></dialog>
+<noscript><p>The 3D globe requires JavaScript. <a href="/api/snapshot">Read the current structured database snapshot.</a></p></noscript>
+</body></html>
