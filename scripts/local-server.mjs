@@ -62,6 +62,17 @@ if(process.argv[1]&&import.meta.url===pathToFileURL(resolve(process.argv[1])).hr
  const port=args.length?Number(args[0].slice(7)):8797;
  if(!Number.isInteger(port)||port<1||port>65535)throw Error('Invalid port');
  const server=await startDemo(port);
+ const sockets=new Set();
+ server.on('connection',socket=>{sockets.add(socket);socket.once('close',()=>sockets.delete(socket));});
+ let stopping=false;
+ const shutdown=()=>{
+  if(stopping)return;
+  stopping=true;
+  // Let requests finish, then release preconnections and incomplete HTTP requests.
+  const deadline=setTimeout(()=>{for(const socket of sockets)socket.destroy();},1000);
+  deadline.unref();
+  server.close(()=>clearTimeout(deadline));
+ };
  console.log(`Synthetic read-only demo: http://127.0.0.1:${server.address().port} · no external feeds or personal automations`);
- for(const signal of ['SIGINT','SIGTERM'])process.on(signal,()=>server.close());
+ for(const signal of ['SIGINT','SIGTERM'])process.on(signal,shutdown);
 }

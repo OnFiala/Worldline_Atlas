@@ -6,7 +6,7 @@ reference export and its synthetic local demonstration, not a hosted service.
 ## Automated checks
 
 `node --experimental-sqlite scripts/test-all.mjs` completed successfully after
-the final runtime changes. All six scripts passed:
+the shutdown and singular-label corrections. All seven scripts passed:
 
 - API: persisted append/readback, optimistic version conflicts, source origin
   and reading gates, corrections and withdrawals, time consistency, forecast
@@ -24,6 +24,29 @@ the final runtime changes. All six scripts passed:
   routes/assets; mutation, foreign-origin and traversal rejection; server-only
   write authorization; absent NASA texture; disconnected orbit. An unexpected
   external fetch makes this test fail.
+- CLI shutdown: actual child processes exit with code 0 after SIGINT and SIGTERM,
+  both after ordinary HTTP traffic and with raw TCP preconnections/incomplete
+  HTTP headers. Each listening port can be rebound after exit. The pre-fix
+  regression reproduced a SIGINT hang with unfinished connections; the fix gives
+  requests one second to finish before closing remaining sockets. Tests contact
+  only loopback and require permission to bind/connect there.
+
+## Visual browser review
+
+A separate QA pass on 2026-10-15 reviewed public commit
+[`5f3357e`](https://github.com/OnFiala/Worldline_Atlas/commit/5f3357e23b3f39b36fb37952fc333fc568a95a6e)
+in the actual in-app browser, at desktop size and a 390 × 844 mobile viewport.
+The reviewed pages were Globe, Connections, Forecasts, Performance and Methodology,
+including case details, the synthetic hypothesis expansion and mobile list view.
+The report confirmed readable layouts, explicit fictional-data labeling, the
+schematic globe and disconnected ISS/provider state. Desktop globe/forecast and
+mobile globe/list screenshots were recorded in the QA session; those session
+artifacts are not bundled in this public source export.
+
+The review found singular-label mistakes and a server that did not finish
+shutdown after Ctrl+C or SIGTERM. This follow-up corrects those labels and the
+reproduced incomplete-connection shutdown case. The later changes were checked
+with automated tests; the full visual pass was not repeated on this follow-up.
 
 ## Actual HTTP smoke check
 
@@ -46,9 +69,10 @@ preparation. No hosted service or personal automation was changed.
 
 ## Limits
 
-The in-app browser was unavailable, so this export has not received a fresh
-visual browser review. Script and HTTP checks do not prove WebGL rendering,
-responsive layout or accessibility in every browser. The synthetic orbit test
+The visual pass covers the stated commit and viewports; it does not establish
+WebGL rendering, responsive layout or accessibility in every browser. The exact
+connection state behind the original QA shutdown hang was not captured, although
+unfinished connections reproduce the failure. The synthetic orbit test
 is not an independent numerical accuracy certification of SGP4. Mocked provider
 tests do not establish live-provider availability, data truth or redistribution
 rights. Node's SQLite API emits an experimental-feature warning on the tested

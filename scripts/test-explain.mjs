@@ -21,7 +21,8 @@ assert.ok(!renderExplanation({...e,whatHappened:'<script>unsafe()</script>'},d).
 const chain=renderChain(r,d);assert.match(chain,/Road access/);assert.match(chain,/Household supplies/);assert.ok(!chain.includes('road_id'));
 assert.match(renderExplanation(r,d,'relation'),/Possible effect/);
 assert.match(explanation(r,{...d,events:[]},'relation').whatHappened,/No source-checked initiating case/);
-assert.match(renderCoverage(d),/Partial coverage · 1 reviewed cases/);assert.match(renderCoverage(d),/Missing markers do not mean/);
+assert.match(renderCoverage(d),/Partial coverage · 1 reviewed case<\/summary>/);assert.match(renderCoverage(d),/Missing markers do not mean/);
+assert.match(renderCoverage({...d,events:[e,e]}),/Partial coverage · 2 reviewed cases<\/summary>/);
 assert.match(renderCoverage({...d,events:[]}),/No case has completed/);
 assert.equal(caseType({...e,contextType:'ongoing_context'}),'Ongoing context');
 assert.equal(caseType({...e,status:'Verified monthly estimate'}),'Dated observation');

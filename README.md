@@ -68,6 +68,8 @@ node --experimental-sqlite scripts/test-all.mjs
 ```
 
 Tests use isolated in-memory databases, synthetic data and mocked provider calls.
+The shutdown test briefly starts child servers on loopback and requires local
+bind/connect permission; it sends SIGINT and SIGTERM only to its own processes.
 They do not query NASA or CelesTrak or mutate a hosted service. See the
 [verification record](docs/VERIFICATION.md) for the tested scope and limitations.
 
