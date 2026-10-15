@@ -1,22 +1,26 @@
-# Development account
+# How I'm building Worldline Atlas
 
-Worldline Atlas began as Ondřej Fiala's experiment in voice-led direction of an
-AI-assisted research and software project. Ondřej calls the collaborator Botter
-and describes working through spoken instructions in Dots.
+I want to see how events connect and check whether the effects I expected really
+happen. That means keeping track of sources, uncertainty and mistakes as the
+atlas grows.
 
-Agents used code editing, command-line tools, tests and browser checks. The
-available repository evidence does not establish the input modality of every
-step. We therefore describe the approach as voice-directed development, not a
-verified voice-only process covering every fix, approval and publication.
+I talk through ideas with Botter, my Dots assistant. Those conversations help me
+direct the work: what to build, what to check and what needs changing. Agents
+write and edit the code, run tests and use browser checks. I also make corrections
+in text. Voice is part of the process alongside those tools.
 
-The public history starts with a deliberately curated reference export on
-2026-10-15. Earlier private commits, data imports, operational records and
-conversations are excluded. This public history is not a replay of the original
-sequence and contains no reconstructed or backdated commits.
+My live research version is private. Here on GitHub I'm sharing the basic code,
+the research method and a local demo with fictional records. You can run it,
+inspect how the pieces fit together and reuse the code under its license. It
+doesn't connect to my accounts or run my personal automations. A public website
+is a separate step for later.
 
-This is an independent experiment. Mentioning Dots, Botter, OpenAI, NASA or other
-tools and sources describes context or provenance; it conveys no sponsorship,
-endorsement or official partnership. No third-party logos are included.
+I started this public Git history on 2026-10-15 with selected parts of the project.
+The earlier private commits, research imports and conversations stay private.
+The public commits record the export and its later changes; they aren't a
+reconstruction of the earlier work.
 
-The public repository illustrates the architecture and research method. The
-author's personal research, accounts, automations and live service are separate.
+This is my own experiment. The names of tools and sources explain what I use;
+they don't imply sponsorship or endorsement. No third-party logos are included.
+See the [licenses and credits](../THIRD_PARTY_NOTICES.md) for what can be reused
+and which materials I've left out.

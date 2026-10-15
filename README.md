@@ -1,25 +1,24 @@
 # Worldline Atlas
 
-A public reference for connecting world events with conditional effects across
-nature, society, economics and markets, then checking whether those effects occur.
+I'm building an atlas to see how events around the world connect. I want to follow
+their effects on nature, people's lives, the economy and markets. Then come back
+later and check which of those expected effects actually happened.
 
-The project explores a simple discipline: record what was observed, explain a
-possible mechanism, freeze a forecast before its outcome, and preserve subsequent
-corrections and evaluations. Market links are research hypotheses, not trading
-recommendations.
+I talk through the ideas with Botter, my Dots assistant, and use those
+conversations to steer the build. I'm experimenting with voice as a way to direct
+the work. Agents write code, run tests and debug. I make corrections in text too.
+More on [how I'm building it](docs/DEVELOPMENT.md).
 
-## Built through voice-led direction
-
-“Stavěno hlasem s Dots” — built through voice-led direction with Dots.
-
-Ondřej describes the original experiment as directing Botter through spoken
-instructions while AI agents implemented, tested and debugged using development
-tools. This is a description of the development approach, not a verified claim
-that every interaction, repair or publication was voice-only. This independent
-project does not imply sponsorship or endorsement by Dots, OpenAI or NASA.
-See [the development account](docs/DEVELOPMENT.md).
+I want to keep observations, hypotheses and forecasts separate. Each claim needs
+sources and dates. Each proposed connection needs an explanation and a way to
+test it. Original forecasts stay in the record when I change my mind, so I can
+check what I expected before knowing the outcome. Market connections are research
+hypotheses, not trading recommendations.
 
 ## What is here
+
+I'm sharing the basic structure and a local demo here. My live research version
+is private. A public website is a later step; this repository doesn't deploy one.
 
 - A plain JavaScript/WebGL globe, relationship views and forecast/evidence UI.
 - A small append-only research API and SQLite adapter with regression tests.
@@ -31,14 +30,10 @@ The globe uses an original schematic grid, **not a geographic basemap**. NASA
 imagery and real CelesTrak orbital samples are not included or fetched by the demo.
 The ISS panel explicitly reports that the live layer is disconnected.
 
-## What is not here
-
-There is no private research dataset or old Git history, live service identity,
-credential, personal conversation, account integration, deployment pipeline,
-research scheduler or automatic model-routing system. Cloning this repository
-does not start or transfer the author's personal automations. A public live
-portfolio deployment is a separate project step; this repository does not deploy
-or configure it.
+I've kept my research data, conversations, accounts and personal automations out
+of this repository. It has a new Git history and contains no credentials, live
+service identities, deployment pipeline, research scheduler or automatic model
+routing. Cloning it starts none of those services.
 
 ## Run locally
 
@@ -89,7 +84,9 @@ or database migration setup is included.
 
 ## License
 
-Original project contributions are under the [MIT License](LICENSE), copyright
-2026 Ondřej Fiala. The vendored satellite.js library retains its own MIT notice.
+I've released my project contributions under the [MIT License](LICENSE),
+copyright 2026 Ondřej Fiala. The vendored satellite.js library retains its own MIT notice.
 Third-party data, media, names and marks are not relicensed by this project's MIT
 license. See [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
+
+This is my independent project. Dots, OpenAI and NASA do not sponsor or endorse it.
